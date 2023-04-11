@@ -8,7 +8,8 @@ public class PlatformSpawn : MonoBehaviour
     #region Variables
     public GameObject platformPrefab;
     public GameObject spawnPrefab;
-    public Vector3 speed = new (1,0,0);
+    float speed;
+    public Vector3 direction;
     public List<GameObject> spawnList = new List<GameObject>();
     public float time;
     float number = 5;
@@ -21,12 +22,14 @@ public class PlatformSpawn : MonoBehaviour
     }
     void Update()
     {
-        transform.position += speed * Time.deltaTime;
+        speed += Time.deltaTime / 10;
+        direction = new Vector3 (speed, 0, 0);
+        transform.position += direction * Time.deltaTime;
         Platform();
     }
     void Platform()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime * speed;
         if (time > number)
         {
             number = Random.Range(3f, 7f);
