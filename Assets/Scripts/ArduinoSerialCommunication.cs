@@ -16,6 +16,7 @@ public class ArduinoSerialCommunication : MonoBehaviour
     public SerialPort serial;
     public bool jumping;
     public bool speeding;
+    public bool swapping;
     bool stop = false;
     bool stop2 = false;
     string[] ports = SerialPort.GetPortNames();
@@ -84,6 +85,14 @@ public class ArduinoSerialCommunication : MonoBehaviour
             if (input == "not speed")
             {
                 speeding = false;
+            }
+            if (input == "swap")
+            {
+                swapping = true;
+            }
+            if (input == "swap not")
+            {
+                swapping = false;
             }
         }
 

@@ -70,8 +70,8 @@ public class Movement : MonoBehaviour
             speed /= 2;
             isSpeeding = false;
         }
-        if (Input.GetKey(KeyCode.A)) player.transform.position -= new Vector3(speed,0,0) * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D)) player.transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
+        if (arduinoSerialCommunication.swapping == true) player.transform.position -= new Vector3(speed,0,0) * Time.deltaTime;
+        if (arduinoSerialCommunication.swapping == false) player.transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
     }
     public void Jump()
     {
